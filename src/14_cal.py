@@ -22,3 +22,37 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+currentMonth = datetime.now().month
+currentYear = datetime.now().year
+
+
+def calendar1(list1=[currentMonth,currentYear]):
+    month = currentMonth
+    year = currentYear
+    if len(list1) == 1:
+        month = int(list1[0])
+        c = calendar.TextCalendar(calendar.SUNDAY)
+        cal = c.formatmonth(year, month)
+        print(cal)
+    elif len(list1) == 2:
+        month = int(list1[0][1])
+        year = int(list1[1][:-1])
+        c = calendar.TextCalendar(calendar.SUNDAY)
+        cal = c.formatmonth(year, month)
+        print(cal)
+
+
+
+# calendar1([1, 2020])
+# calendar1([1])
+# calendar1([])
+y = []
+
+try:
+    y = str(input('month and year (1,2020): ')).split(',')
+except SyntaxError:
+    print('bad data')
+
+
+calendar1(y)
