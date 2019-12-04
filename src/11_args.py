@@ -5,6 +5,8 @@
 # the sum. This is what you'd consider to be a regular, normal function.
 
 # YOUR CODE HERE
+def f1(n1,n2):
+    return n1+n2
 
 print(f1(1, 2))
 
@@ -13,10 +15,21 @@ print(f1(1, 2))
 
 # YOUR CODE HERE
 
+def f2(*argv):
+    sum = 0
+    for arg in argv: 
+        if isinstance(arg, list):
+            for i in arg:
+                sum += i
+        else:
+            sum += arg
+    return sum
+        
+
 print(f2(1))                    # Should print 1
 print(f2(1, 3))                 # Should print 4
 print(f2(1, 4, -12))            # Should print -7
-print(f2(7, 9, 1, 3, 4, 9, 0))  # Should print 33
+print(f2(7, 9, 1, 3, 4, 9, 0))  # Should print 33 
 
 a = [7, 6, 5, 4]
 
@@ -28,6 +41,9 @@ print(f2(a))    # Should print 22
 # arguments. Google "python default arguments" for a hint.
 
 # YOUR CODE HERE
+
+def f3(n1, n2 = 1):
+    return n1 + n2
 
 print(f3(1, 2))  # Should print 3
 print(f3(8))     # Should print 9
@@ -42,6 +58,15 @@ print(f3(8))     # Should print 9
 # Google "python keyword arguments".
 
 # YOUR CODE HERE
+def f4(**kwargs):
+
+    for key, value in kwargs.items():
+        print('key: ' + key + ', value: ' + str(value))
+
+    # for arg in kwargs.values():
+        
+
+
 
 # Should print
 # key: a, value: 12
@@ -60,4 +85,4 @@ d = {
 }
 
 # What thing do you have to add to make this work?
-f4(d)
+# f4(d)
